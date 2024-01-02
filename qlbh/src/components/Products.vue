@@ -5,7 +5,7 @@
         <ItemProd
           :name="product.name"
           :price="product.price"
-          :thumb="product.thumb"
+          :img="product.img"
         />
       </div>
     </div>
@@ -21,24 +21,13 @@ export default {
   },
   data() {
     return {
-      products: [
-        {
-          thumb: "../assets/itemsp.jpg",
-          name: "Natural Plants",
-          price: 1200,
-        },
-        {
-          thumb: "../assets/itemsp.jpg",
-          name: "Artificial Plants",
-          price: 1600,
-        },
-        {
-          thumb: "../assets/itemsp.jpg",
-          name: "Artificial Plants",
-          price: 900,
-        },
-      ],
+      products: [],
     };
+  },
+  created() {
+    fetch("https://65937a4abb1297071990a088.mockapi.io/products/product_item")
+      .then((response) => response.json())
+      .then((data) => (this.products = data));
   },
 };
 </script>
