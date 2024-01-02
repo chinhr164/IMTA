@@ -1,6 +1,6 @@
 <template>
   <div class="product-item">
-    <img src="`${{thumb}}`" alt="Product Image" class="product-image" />
+    <img :src="img" alt="Product Image" class="product-image" />
     <h4 class="name-item">{{ name }}</h4>
     <p class="price-item">{{ price }}</p>
     <button class="btn btn-primary btn-add-to-cart">Add to Cart</button>
@@ -19,7 +19,7 @@ export default {
       type: Number,
       required: true,
     },
-    thumb: {
+    img: {
       type: String,
       required: false,
     },
